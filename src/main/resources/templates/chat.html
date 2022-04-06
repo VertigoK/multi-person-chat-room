@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Multi-person Chat Room using Netty and Spring Boot</title>
+    <link th:rel="stylesheet" th:href="@{/css/chat.css}">
+</head>
+<body>
+<ul class="pages">
+    <li class="login page">
+        <div class="form">
+            <h3 class="title">대화명을 입력해 주세요.</h3>
+            <label>
+                <input class="usernameInput" type="text" maxlength="15" id="userName"/>
+            </label>
+        </div>
+    </li>
+    <li class="chat page">
+        <div class="chatArea">
+            <ul class="messages"></ul>
+        </div>
+        <label>
+            <input class="inputMessage" placeholder="Type here..."/>
+        </label>
+    </li>
+</ul>
+<script th:src="@{https://code.jquery.com/jquery-3.6.0.min.js}"></script>
+<script th:src="@{/js/chat.js}"></script>
+</body>
+</html>
