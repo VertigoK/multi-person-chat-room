@@ -1,16 +1,10 @@
 package netty.springboot.multipersonchatroom.netty;
 
-import io.netty.channel.group.ChannelGroup;
-import io.netty.channel.group.DefaultChannelGroup;
-import io.netty.util.concurrent.GlobalEventExecutor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 @Component
-public class NettyConfig {
-
-    //Store all connected channels
-    public static ChannelGroup group = new DefaultChannelGroup(GlobalEventExecutor.INSTANCE);
+public class NettyServerConfig {
 
     //WebSocket host and port info
     public static String WS_HOST;

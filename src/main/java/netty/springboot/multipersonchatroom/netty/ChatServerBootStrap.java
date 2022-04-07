@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
 import java.net.InetSocketAddress;
 
 @Component
-public class ServerBootStrap {
+public class ChatServerBootStrap {
 
     private final EventLoopGroup bossGroup = new NioEventLoopGroup();
     private final EventLoopGroup workerGroup = new NioEventLoopGroup();
@@ -22,8 +22,8 @@ public class ServerBootStrap {
         ServerBootstrap bootstrap = new ServerBootstrap();
         bootstrap.group(bossGroup, workerGroup)
                 .channel(NioServerSocketChannel.class)
-                .childHandler(new ServerInitializer())
                 .option(ChannelOption.SO_BACKLOG, 128)
+                .childHandler(new ChatServerInitializer())
                 .childOption(ChannelOption.SO_KEEPALIVE, true);
         ChannelFuture future = bootstrap.bind(address).syncUninterruptibly();
         channel = future.channel();
@@ -34,7 +34,7 @@ public class ServerBootStrap {
         if (channel != null) {
             channel.close();
         }
-        NettyConfig.group.close();
+        ChatServerHandler.channelGroup.close();
         workerGroup.shutdownGracefully();
         bossGroup.shutdownGracefully();
     }

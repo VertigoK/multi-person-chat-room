@@ -4,24 +4,19 @@ public class WsMessage {
 
     private int t;  //message type
     private String n;   //username
-    private long room_id;   //room ID
+    private long roomId;   //room ID
     private String body;    //message body
     private int err;    //error code
 
     @Override
     public String toString() {
-        return "WsMessage{" +
+        return "WebSocketMessage{" +
                 "messageType=" + t +
                 ", username='" + n + '\'' +
-                ", roomId=" + room_id +
+                ", roomId=" + roomId +
                 ", messageBody='" + body + '\'' +
                 ", errorCode=" + err +
                 '}';
-    }
-
-    public WsMessage(int t) {
-        this.t = t;
-        this.err = 0;
     }
 
     public WsMessage(int t, String n) {
@@ -74,12 +69,12 @@ public class WsMessage {
         this.n = n;
     }
 
-    public long getRoom_id() {
-        return room_id;
+    public long getRoomId() {
+        return roomId;
     }
 
-    public void setRoom_id(long room_id) {
-        this.room_id = room_id;
+    public void setRoomId(long roomId) {
+        this.roomId = roomId;
     }
 
     public String getBody() {
