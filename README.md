@@ -1,4 +1,4 @@
-## **Multi-Person Chat App**
+## **Multi-Person Chat Room App**
 ### **Netty, Spring Boot, Thymeleaf, Bootstrap and jQuery**
 
 1. Open multiple tabs in your browser.
