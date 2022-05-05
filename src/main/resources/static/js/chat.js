@@ -179,7 +179,7 @@ $(function() {
             case 0:     //connection establishment response
                 break;
             case -1:    //Receive a welcome message when entering the chat room.
-                outputLog(username + "님, 대화방에 오신 걸 환영합니다!");
+                outputLog(username + ", welcome to the chat room!");
                 break;
             case -2:    //Receive messages from others
                 let data = {
@@ -189,10 +189,10 @@ $(function() {
                 addChatMessage(data);
                 break;
             case -10001:    //Receive a message that someone else has entered the chat room.
-                outputLog(msg.n + "님이 입장했습니다.");
+                outputLog(msg.n + " just entered the room.");
                 break;
             case -11000:    //Receive a message that someone else has left the chat room.
-                outputLog(msg.n + "님이 대화방을 나갔습니다.");
+                outputLog(msg.n + " left the room.");
                 break;
         }
     }
