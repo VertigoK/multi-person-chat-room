@@ -12,7 +12,7 @@ import io.netty.handler.codec.http.websocketx.*;
 import io.netty.util.AttributeKey;
 import io.netty.util.CharsetUtil;
 import io.netty.util.concurrent.GlobalEventExecutor;
-import netty.springboot.multipersonchatroom.pojo.WsMessage;
+import netty.springboot.multipersonchatroom.domain.WsMessage;
 
 import com.google.gson.Gson;
 import io.netty.handler.codec.http.FullHttpRequest;
