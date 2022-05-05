@@ -17,8 +17,12 @@ public class MultiPersonChatroomApplication implements CommandLineRunner {
 
 	private static final Logger logger = LoggerFactory.getLogger(MultiPersonChatroomApplication.class);
 
+	private final ChatServerBootStrap ws;
+
 	@Autowired
-	private ChatServerBootStrap ws;
+	public MultiPersonChatroomApplication(ChatServerBootStrap ws) {
+		this.ws = ws;
+	}
 
 	public static void main(String[] args) throws Exception {
 		SpringApplication.run(MultiPersonChatroomApplication.class, args);
@@ -29,12 +33,7 @@ public class MultiPersonChatroomApplication implements CommandLineRunner {
 		logger.info("Netty's websocket server is listening: " + NettyServerConfig.WS_PORT);
 		InetSocketAddress address = new InetSocketAddress(NettyServerConfig.WS_HOST, NettyServerConfig.WS_PORT);
 		ChannelFuture future = ws.start(address);
-		Runtime.getRuntime().addShutdownHook(new Thread() {
-			@Override
-			public void run() {
-				ws.destroy();
-			}
-		});
+		Runtime.getRuntime().addShutdownHook(new Thread(ws::destroy));
 		future.channel().closeFuture().syncUninterruptibly();
 	}
 

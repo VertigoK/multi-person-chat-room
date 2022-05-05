@@ -26,9 +26,9 @@ dependencies {
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 
-	implementation 'io.netty:netty-all:4.1.75.Final'
-	implementation 'com.google.code.gson:gson:2.9.0'
-	implementation 'org.slf4j:slf4j-api:1.7.36'
+	implementation 'io.netty:netty-all'
+	implementation 'com.google.code.gson:gson'
+	implementation 'org.slf4j:slf4j-api'
 }
 
 tasks.named('test') {
